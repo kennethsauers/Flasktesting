@@ -14,7 +14,7 @@ def saveImg():
 
     f = io.BytesIO(base64.b64decode(data))
     pilimage = Image.open(f)
-    pilimage.save('pleaseGod0.png', "JPEG")
+    pilimage.save('imgReceived.jpg', "JPEG")
     return
 
 if __name__ == "__main__":
