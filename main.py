@@ -7,11 +7,12 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['POST'])
 def saveImg():
-    with open("image.jpg", "rb") as image:
-        b64string = base64.b64encode(image.read())
 
     data = request.json
-    f = io.BytesIO(base64.b64decode(b64string))
+    print(data)
+    data = bytes(data['data'])
+
+    f = io.BytesIO(base64.b64decode(data))
     pilimage = Image.open(f)
     pilimage.save('pleaseGod0.png', "JPEG")
     return
